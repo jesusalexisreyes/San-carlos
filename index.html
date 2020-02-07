@@ -7,7 +7,7 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sona | Template</title>
+    <title>Inmobilaria San carlos | Rentas</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -45,12 +45,12 @@
         <div class="header-configure-area">
             <div class="language-option">
                 <img src="img/MEX.jpg" alt="">
-                <span>EN <i class="fa fa-angle-down"></i></span>
-                <div class="flag-dropdown">
-                    <ul>
+                <span>ES <i class="fa fa-angle-down"></i></span>
+                <!--  <div class="flag-dropdown">
+                   <ul>
                         <li><a href="#">Zi</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
         <nav class="mainmenu mobile-menu">
@@ -66,7 +66,6 @@
         <div id="mobile-menu-wrap"></div>
         <div class="top-social">
             <a href="https://www.facebook.com/inmbsancarlos/"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
         <ul class="top-widget">
@@ -92,14 +91,13 @@
                             <div class="top-social">
                                 <a href="https://www.facebook.com/inmbsancarlos/"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
                             <div class="language-option">
                                 <img src="img/MEX.jpg" alt="">
                                 <span>MEX <i class="fa fa-angle-down"></i></span>
                                 <div class="flag-dropdown">
                                     <ul>
-                                        <li><a href="#">ENG</a></li>
+                                        <li><a href="#">ES</a></li>
 
                                     </ul>
                                 </div>
@@ -115,7 +113,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="img/logo.png" alt="">
+                            <img src="img/logo.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -123,23 +121,16 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a href="./index.html">Home</a></li>
-                                    <li><a href="./rooms.html">Rooms</a></li>
-                                    <li><a href="./about-us.html">About Us</a></li>
-                                    <li><a href="./pages.html">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./room-details.html">Room Details</a></li>
-                                            <li><a href="./blog-details.html">Blog Details</a></li>
-                                            <li><a href="#">Family Room</a></li>
-                                            <li><a href="#">Premium Room</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="./blog.html">News</a></li>
-                                    <li><a href="./contact.html">Contact</a></li>
+                                    <li class="active"><a href="./index.html">Inicio</a></li>
+                                    <li><a href="./rooms.html">Propiedades</a></li>
+                                    <li><a href="./about-us.html">¿Quienes somos?</a></li>
+                                    <li><a href="./blog.html">¿Que hacer?</a></li>
+                                    <li><a href="./contact.html">Contacto</a></li>
+
                                 </ul>
                             </nav>
                             <div class="nav-right search-switch">
-                                <i class="icon_search"></i>
+                              <!--  <i class="icon_search"></i> -->
                             </div>
                         </div>
                     </div>
@@ -155,15 +146,22 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="hero-text">
-                        <h1>Sona A Luxury Hotel</h1>
-                        <p>Here are the best hotel booking sites, including recommendations for international
-                            travel and for finding low-priced hotel rooms.</p>
+                      <div class="contenedor">
+<ul>
+      <li>Maravillosos paisajes</li>
+
+      <li>Playas hermosas</li>
+
+				      <li>Paseos en yates</li>
+			    </ul>
+		</div>
+                        <h3>La mejor opcion para tus vacaciones.</h3>
                         <a href="#" class="primary-btn">Discover Now</a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                     <div class="booking-form">
-                        <h3>Booking Your Hotel</h3>
+                        <h3>Haz tu reservacion</h3>
                         <form action="#">
                             <div class="check-date">
                                 <label for="date-in">Entrada:</label>
@@ -184,23 +182,26 @@
 
                                 </select>
                             </div>
-                            <div class="select-option">
-                                <label for="room">Room:</label>
-                                <select id="room">
-                                    <option value="">1 Room</option>
-                                    <option value="">2 Room</option>
-                                </select>
+                            <div class="check-date">
+                                <label for="room">Precio:</label>
+
+                                <input type="text" placeholder="desde $500" />
+
+                              <label for="room"></label>
+
+                                <input type="text" placeholder="hasta $1000" />
+
                             </div>
-                            <button type="submit">Check Availability</button>
+                            <button type="submit">Ver disponibilidad</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
         <div class="hero-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg"></div>
-            <div class="hs-item set-bg" data-setbg="img/hero/hero-2.jpg"></div>
-            <div class="hs-item set-bg" data-setbg="img/hero/hero-3.jpg"></div>
+            <div class="hs-item set-bg" data-setbg="img/hero/1.jpg"></div>
+            <div class="hs-item set-bg" data-setbg="img/hero/2.jpg"></div>
+            <div class="hs-item set-bg" data-setbg="img/hero/3.jpg"></div>
         </div>
     </section>
     <!-- Hero Section End -->
