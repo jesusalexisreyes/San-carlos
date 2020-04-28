@@ -33,10 +33,12 @@
     </div>
 
     <!-- Offcanvas Menu Section Begin -->
-    
+<?php include("includes/off-canvas.php"); ?>
+
     <!-- Offcanvas Menu Section End -->
 
     <!-- Header Section Begin -->
+    <?php include("includes/header.php"); ?>
 
     <!-- Header End -->
 
@@ -46,7 +48,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="hero-text">
-                      <h2 id="titulo" style="font-size: 51px; padding: 5px;">Inmobiliaria San Carlos</h2>
+                      <h2 id="titulo" style="font-size: 59px; padding: 5px;">Inmobiliaria san carlos</h2>
                       <br>
                       <div class="contenedor">
 <ul>
@@ -322,8 +324,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <span>Hotel News</span>
-                        <h2>Our Blog & Event</h2>
+                        <span>Pasar el tiempo</span>
+                        <h2>¿Como disfrutar San Carlos?</h2>
                     </div>
                 </div>
             </div>
@@ -379,6 +381,7 @@
     <!-- Blog Section End -->
 
     <!-- Footer Section Begin -->
+    <?php include("includes/footer.php"); ?>
 
     <!-- Footer Section End -->
 

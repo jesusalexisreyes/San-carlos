@@ -20,12 +20,10 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Inicio</a></li>
-                <li><a href="./rooms.html">Propiedades</a></li>
-                <li><a href="./about-us.html">¿Quienes somos?</a></li>
-
-                <li><a href="./blog.html">¿Que hacer?</a></li>
-                <li><a href="./contact.html">Contacto</a></li>
+              <li class="active"><a href="./index.html">Inicio</a></li>
+              <li><a href="./rooms.html">control de propiedades</a></li>
+              <li><a href="./about-us.html">control de usuarios</a></li>
+              <li><a href="./blog.html">Editar Blog</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
