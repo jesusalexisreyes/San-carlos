@@ -43,7 +43,7 @@ for ($i=0; $i <count($_FILES["files"]["name"]); $i++) {
 
 if(!isset($error)) {
   // Definimos el query a ejecutar
-  $queryblogAdd = sprintf("INSERT INTO propiedad (colonia, numero, habitaciones, capacidad, baño, tipo,
+  $querypropiedadAdd = sprintf("INSERT INTO propiedad (colonia, numero, habitaciones, capacidad, baño, tipo,
     imagenes, descripcion, costo_dia, costo_semana, costo_mes, latitud, longitud)
   VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
       mysqli_real_escape_string($connLocalhost,trim($colonia)),
@@ -63,9 +63,9 @@ if(!isset($error)) {
   );
 
 
-  $resQueryblog = mysqli_query($connLocalhost, $queryblogAdd) or trigger_error("The propiety insert query failed...");
+  $resQuerypropiedad = mysqli_query($connLocalhost, $querypropiedadAdd) or trigger_error("The propiety insert query failed...");
 
-  if($resQueryblog) {
+  if($resQuerypropiedad) {
 
   }
 
@@ -139,7 +139,7 @@ $PropiedadDetails = mysqli_fetch_assoc($resQueryGetPropiedad);
 
     ?>
 
-     <?php if(isset($queryblogAdd)){
+     <?php if(isset($querypropiedadAdd)){
       ?>
       <div class="alert alert-success alert-dismissible fade show">
          <strong>Success!</strong> Se ha registrado un propiedad exitosamente.

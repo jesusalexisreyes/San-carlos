@@ -16,8 +16,8 @@
                                 <ul>
                                     <li><a href="./indexAdmi.php">Inicio</a></li>
                                     <li><a href="./control.propiedad.php">control de propiedades</a></li>
-                                    <li><a href="./about-us.html">control de usuarios</a></li>
-                                    <li><a href="./about-us.html">control de tipo de usuarios</a></li>
+                                    <li><a href="./controlUsuario.php">control de usuarios</a></li>
+                                    <li><a href="./controlTipoUsuario.php">control de tipo de usuarios</a></li>
                                     <li><a href="./blogAdmi.php">Editar Blog</a></li>
 
                                 </ul>
