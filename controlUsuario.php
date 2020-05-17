@@ -28,7 +28,7 @@ if(!isset($error)) {
       mysqli_real_escape_string($connLocalhost,trim($contraseña)),
       mysqli_real_escape_string($connLocalhost,trim($telefono)),
       mysqli_real_escape_string($connLocalhost,trim($perfil_usuario)),
-      mysqli_real_escape_string($connLocalhost,trim(edad))
+      mysqli_real_escape_string($connLocalhost,trim($edad))
 
 
   );
@@ -99,7 +99,6 @@ error_reporting(E_ALL);
                     </div>
                 </div>
             </div>
-        </div>
         <?php
           if(isset($error)) { ?>
               <div style="background: #F5A9A9;"class="alert alert-warning alert-dismissable">
@@ -117,10 +116,11 @@ error_reporting(E_ALL);
          </div>
          <?php } ?>
 
-                            <button button type="submit" data-toggle="modal" data-target="#registroUsuario" >Registrar tipo</button>
-                        </div>
-                    </div>
+    <button button type="submit" data-toggle="modal" data-target="#registroUsuario" >Registrar tipo</button>
+    <?php  include("includes/formatos/formatoRusuario.php"); ?>
+  </div>
 </div>
+
 
 
   <table class="table table-striped">

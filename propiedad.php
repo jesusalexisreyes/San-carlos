@@ -1,7 +1,16 @@
 
-<?php
 
+<?php
 include("conn/connLocalhost.php");
+
+//Obteniendo propiedades
+$queryGetPropiedadAll = "SELECT id, colonia, numero, habitaciones, capacidad, baño, tipo, imagenes, descripcion, costo_dia, costo_semana, costo_mes FROM propiedad ORDER BY colonia DESC LIMIT 5";
+$resQueryGetPropiedadAll = mysqli_query($connLocalhost, $queryGetPropiedadAll) or trigger_error("There was an error getting the user data... please try again");
+
+$totalPropiedadAll = mysqli_num_rows($resQueryGetPropiedadAll);
+
+$PropiedadDetailsAll = mysqli_fetch_assoc($resQueryGetPropiedadAll);
+
 
 //Obteniendo propiedades
 $queryGetPropiedad = "SELECT id, colonia, numero, habitaciones, capacidad, baño, tipo, imagenes, descripcion, costo_dia, costo_semana, costo_mes FROM propiedad ORDER BY colonia DESC LIMIT 4";
@@ -11,16 +20,14 @@ $totalPropiedad = mysqli_num_rows($resQueryGetPropiedad);
 
 $PropiedadDetails = mysqli_fetch_assoc($resQueryGetPropiedad);
 
-//Sacar articulos del blog
-$queryGetBlog = "SELECT id, titulo, descripcion, imagen FROM blog ORDER BY id DESC LIMIT 3";
-$resQueryGetBlog = mysqli_query($connLocalhost, $queryGetBlog) or trigger_error("There was an error getting the user data... please try again");
 
-$totalBlog = mysqli_num_rows($resQueryGetBlog);
 
-$BlogDetails = mysqli_fetch_assoc($resQueryGetBlog);
+
 
 
  ?>
+
+
 
 
 <!DOCTYPE html>
@@ -70,62 +77,13 @@ $BlogDetails = mysqli_fetch_assoc($resQueryGetBlog);
     <!-- Hero Section Begin -->
     <section class="hero-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-10">
                     <div class="hero-text">
-                      <h2 id="titulo" style="font-size: 59px; padding: 5px;">Inmobiliaria san carlos</h2>
+                      <h2 id="titulo" style="font-size: 59px; padding: 5px;">Listado de propiedades</h2>
                       <br>
-                      <div class="contenedor">
-<ul>
-      <li>Maravillosos paisajes</li>
-
-      <li>Playas hermosas</li>
-
-				      <li>Paseos en yates</li>
-			    </ul>
-		</div>
-                        <h3>La mejor opcion para tus vacaciones.</h3>
-                        <a href="#" class="primary-btn">Descubre tu destino</a>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
-                    <div class="booking-form">
-                        <h3>Haz tu reservacion</h3>
-                        <form action="#">
-                            <div class="check-date">
-                                <label for="date-in">Entrada:</label>
-                                <input type="text" class="date-input" id="date-in" >
-                                <i class="icon_calendar" ></i>
-                            </div>
-                            <div class="check-date">
-                                <label for="date-out">Salida:</label>
-                                <input type="text" class="date-input" id="date-out">
-                                <i class="icon_calendar"></i>
-                            </div>
-                            <div class="select-option">
-                                <label for="guest">Tipo:</label>
-                                <select id="guest">
-                                    <option value="">Condominio</option>
-                                    <option value="">Casa</option>
-                                    <option value="">Departamento</option>
+                  </div>
 
-                                </select>
-                            </div>
-                            <div class="check-date">
-                                <label for="room">Precio:</label>
-
-                                <input type="text" placeholder="desde $500" />
-
-                              <label for="room"></label>
-
-                                <input type="text" placeholder="hasta $1000" />
-
-                            </div>
-                            <button type="submit">Ver disponibilidad</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="hero-slider owl-carousel">
             <div class="hs-item set-bg" data-setbg="img/hero/1.jpg"></div>
@@ -139,30 +97,142 @@ $BlogDetails = mysqli_fetch_assoc($resQueryGetBlog);
     <section class="aboutus-section spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="about-text">
-                        <div class="section-title">
-                            <span>Visitanos</span>
-                            <h2>Has tu recervacion <br />con nosotros</h2>
+              <?php
+               do {  ?>
+                <div class="col-lg-4">
+                        <div style="margin-bottom: -2px;" class="section-title">
+                            <span><?php echo $PropiedadDetailsAll['colonia']." #".$PropiedadDetailsAll['numero']; ?></span>
+
                         </div>
-                        <p class="f-para">San carlos donde encuentras hermosas vistas naturales </p>
-                        <p class="s-para">Es un perfecto lugar para descanzar, cuenta con un sin fin de actividades de recreacion
-                          paseos en motos kayaks deliciosos restaurantes.</p>
-                        <a href="#" class="primary-btn about-btn">Ver mas</a>
-                    </div>
+                        <div class="booking-form">
+                            <form action="#">
+                                <div class="check-date">
+                                    <label for="date-in">Habitaciones: <P><strong><?php echo $PropiedadDetailsAll['habitaciones'] ?></strong></strong> </P> </label>
+                                </div>
+                                <div class="check-date">
+                                    <label for="date-out">Capacidad:<P><strong><?php echo $PropiedadDetailsAll['capacidad'] ?></strong></strong> </P> </label>
+                                </div>
+                                <div  class="select-option">
+                                    <label for="guest">Baño: <P><strong><?php echo $PropiedadDetailsAll['baño'] ?></strong></strong> </P></label>
+
+                                </div>
+                                <div class="check-date">
+                                    <label for="room">tipo:<P><strong><?php echo $PropiedadDetailsAll['tipo'] ?></strong></strong> </P></label>
+
+
+                                  <label for="room"></label>
+
+
+                                </div>
+                                <div class="check-date">
+                                    <label for="date-in">Descripcion: <P><strong><?php echo $PropiedadDetailsAll['descripcion'] ?></strong></strong> </P> </label>
+                                </div>
+                                <div class="check-date">
+                                    <label for="date-out">Costo por noche : <P><strong><?php echo $PropiedadDetailsAll['costo_dia'] ?></strong></strong> </P></label>
+                                </div>
+                                <div class="check-date">
+                                    <label for="date-in">Costo por semana: <P><strong><?php echo $PropiedadDetailsAll['costo_semana'] ?></strong></strong> </P></label>
+                                </div>
+                                <div class="check-date">
+                                    <label for="date-out">Costo por mes: <P><strong><?php echo $PropiedadDetailsAll['costo_mes'] ?></strong></strong> </P></label>
+                                </div>
+
+                                <button type="submit">Ver disponibilidad</button>
+                            </form>
+                        </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-8">
+
                     <div class="about-pic">
                         <div class="row">
-                            <div class="col-sm-6">
-                                <img src="img/vistas/tetekawi.jpg" style="width: 330px; height: 468px;" alt="">
+
+                          <div id="demo" class="carousel slide" data-ride="carousel">
+
+                            <!-- Indicators -->
+                            <ul class="carousel-indicators">
+                              <?php
+
+                                          $fullImg= $PropiedadDetailsAll['imagenes'];
+                                          $fullImgC= trim($fullImg, ',');
+
+                                           $lisImg = explode(",", $fullImgC);
+ $i=0;
+                                           foreach ($lisImg as $imagen=>$valor)
+
+                                              {   $valo="";
+                            ?>
+<?php if ($i==0) {
+$valo ="active"; ?>
+<?php }  ?>
+<li data-target="#demo" data-slide-to="<?php echo $i; ?>" class="<?php echo $valo; ?>"></li>
+
+<?php
+$i++;
+
+
+} ?>
+
+                            </ul>
+
+                            <!-- The slideshow -->
+                            <div class="carousel-inner">
+
+
+
+                            <?php
+
+
+                                        $fullImg= $PropiedadDetailsAll['imagenes'];
+                                        $fullImgC= trim($fullImg, ',');
+
+                                         $lisImg = explode(",", $fullImgC);
+                                         $i=0;
+                                           foreach ($lisImg as $imagen=>$valor)
+                                            { $valo="";
+
+                          ?>
+                          <?php if ($i==0) {
+                          $valo ="active"; } ?>
+
+                          <div class="carousel-item <?php echo $valo; ?>" >
+                            <img src="<?php echo $valor; ?>" alt="Chicago" width="1100" height="500">
+                          </div>
+
+                
+                        <?php
+                        $i++;
+?>
+                                                 <?php
+
+
+    }
+
+                                                            ?>
+
+
                             </div>
-                            <div class="col-sm-6">
-                                <img src="img/vistas/playa.jpg" style="width: 330px; height: 468px;" alt="">
-                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                              <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#demo" data-slide="next">
+                              <span class="carousel-control-next-icon"></span>
+                            </a>
+                          </div>
+
                         </div>
+
+
+
                     </div>
                 </div>
+                <div  style="padding: 10px;" class="col-lg-12">
+
+                </div>
+
+              <?php } while($PropiedadDetailsAll = mysqli_fetch_assoc($resQueryGetPropiedadAll)); ?>
+
             </div>
         </div>
     </section>
@@ -204,6 +274,7 @@ $BlogDetails = mysqli_fetch_assoc($resQueryGetBlog);
                       $fullImgC= trim($fullImg, ',');
 
                        $lisImg = explode(",", $fullImgC);
+
 
 ?>
 
@@ -263,28 +334,7 @@ $BlogDetails = mysqli_fetch_assoc($resQueryGetBlog);
         <div class="container">
           <!-- Aqui empiezan los bloques de abajo -->
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>Pasar el tiempo</span>
-                        <h2>¿Como disfrutar San Carlos?</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
 
-                                <?php
-                                 do {  ?>
-                <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="<?php echo $BlogDetails['imagen']; ?>">
-                        <div class="bi-text">
-                            <h4><a href="#"><?php echo $BlogDetails['titulo'];?></a></h4>
-                        </div>
-                    </div>
-                </div>
-              <?php } while($BlogDetails = mysqli_fetch_assoc($resQueryGetBlog)); ?>
-
-            </div>
         </div>
     </section>
     <!-- Blog Section End -->

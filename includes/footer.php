@@ -7,38 +7,31 @@
                         <div class="ft-about">
                             <div class="logo">
                                 <a href="#">
-                                    <img src="img/footer-logo.png" alt="">
+                                    <img src="img/logo.png" alt="">
                                 </a>
                             </div>
-                            <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
+                            <p>La mejor opcion para encontrar alojamiento en <strong>San Carlos Sonora </strong></p>
                             <div class="fa-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-tripadvisor"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                <a href="https://www.facebook.com/inmbsancarlos/"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/inmobsancarlos"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
                         <div class="ft-contact">
-                            <h6>Contact Us</h6>
-                            <ul>
-                                <li>(622) 1424836 || (622) 2261735</li>
-                                <li>da.design@hotmail.es</li>
-                                <li>San Carlos, Sonora</li>
-                            </ul>
+
                         </div>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
-                        <div class="ft-newslatter">
-                            <h6>New latest</h6>
-                            <p>Get the latest updates and offers.</p>
-                            <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
-                            </form>
-                        </div>
+                      <div class="ft-contact">
+                          <h6>Contacto</h6>
+                          <ul>
+                              <li>(622) 1424836 || (622) 2261735</li>
+                              <li>da.design@hotmail.es</li>
+                              <li>San Carlos, Sonora</li>
+                          </ul>
+                      </div>
+                  </div>
                     </div>
                 </div>
             </div>

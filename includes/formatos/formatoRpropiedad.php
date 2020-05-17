@@ -15,7 +15,7 @@ include("conn/connLocalhost.php");
 
 
 
-<div class="modal fade" id="mensaje_iniciars" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="formatoRpropiedades" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -54,13 +54,13 @@ include("conn/connLocalhost.php");
           <input required type="text" placeholder="numero de propiedad" name="numero" />
             <br>
           <label for="room" >Habitaciones:</label>
-          <input required type="number" placeholder="numero de habitaciones de la propiedad"  name="habitaciones"/>
+          <input required min="0" step="1" type="number" placeholder="numero de habitaciones de la propiedad"  name="habitaciones"/>
             <br>
           <label for="room" >Capacidad:</label>
-          <input required type="number" placeholder="numero de capacidad de personas" name="capacidad"/>
+          <input required min="0" step="1" type="number" placeholder="numero de capacidad de personas" name="capacidad"/>
             <br>
           <label for="room" >Baño:</label>
-          <input required type="number"name="baño" placeholder="numero de baños en propiedad" />
+          <input required min="0" step="1" type"number" name="baño" placeholder="numero de baños en propiedad" />
             <br>
 
       </div>
@@ -84,14 +84,17 @@ include("conn/connLocalhost.php");
             <textarea style=" width: -webkit-fill-available;" required type="text" rows="4" cols="60" name="descripcion" placeholder="Descripcion de la casa"></textarea>
               <br>
             <label for="room" >Costo por dia:</label>
-            <input required name="costo_dia" type="text" placeholder="renta por dia" />
+            <input required min="0" step="1" name="costo_dia" type="text" placeholder="renta por dia" />
               <br>
             <label for="room" >Costo por semana:</label>
-            <input required name="costo_semana" type="text" placeholder="renta semanal" />
+            <input required min="0" step="1" name="costo_semana" type="text" placeholder="renta semanal" />
               <br>
             <label for="room" >Costo por mes:</label>
-            <input required name="costo_mes" type="text" placeholder="renta por mes" />
+            <input required min="0" step="1" name="costo_mes" type="text" placeholder="renta por mes" />
               <br>
+              <input required name= "latitud" id="latitud" type="hidden"  />
+              <input required name ="longitud" id="longitud" type="hidden" />
+
               <div class="map" id="map">
                   <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.0606825994123!2d-72.8735845851828!3d40.760690042573295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e85b24c9274c91%3A0xf310d41b791bcb71!2sWilliam%20Floyd%20Pkwy%2C%20Mastic%20Beach%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1578582744646!5m2!1sen!2sbd"

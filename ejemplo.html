@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BootstrapDemo</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script>
+
+        var Id;
+
+        $(document).ready(function () {
+            $('.btn.btn-danger').on('click', function () {
+                Id = $(this).data('id');
+                $('#deleteConfirmModal').modal('show');
+            });
+
+
+            $("#deleteConfirmModal").on('click', "#deleteConfirm", function () {
+                //debugger;
+
+                console.log(Id);
+
+                return false;
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        <button type="button" class="btn btn-danger" data-id="1">
+            Launch demo modal
+        </button>
+
+        <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Local Model</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Hello from the the local modal
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="deleteConfirm" type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

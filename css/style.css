@@ -347,6 +347,9 @@ font-size: 25px;
 color: black;
 
 }
+#anchuraDesc{
+	width: 30px;
+}
 
 
 .contenedor ul {
@@ -656,7 +659,7 @@ color: black;
 	margin-bottom: 15px;
 }
 .booking-form form .check-date label {
-	font-size: 14px;
+	font-size: 18px;
 	color: #707079;
 	display: block;
 	margin-bottom: 10px;

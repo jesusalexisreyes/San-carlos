@@ -53,13 +53,18 @@ echo "  </div>";}
         <label for="room"></label>
           <label for="room">Descripcion:</label>
 
-          <textarea type="text" rows="4" cols="55" name="descripcion" placeholder="Describe el blog" required></textarea>
+          <textarea type="text" rows="4" cols="50" name="descripcion" placeholder="Describe el blog" required></textarea>
+<br>
+          <label for="room">Crear:</label>
 
                     <input type="checkbox"name="crear"  placeholder="Titulo" value="1" />
                     <br>
+                    <label for="room">Editar:</label>
 
                   <input type="checkbox"name="editar"  placeholder="Titulo" value="1" />
                     <br>
+                    <label for="room">Eliminar:</label>
+
                     <input type="checkbox"name="eliminar"  placeholder="Titulo" value="1" />
                       <br>
 
