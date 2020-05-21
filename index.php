@@ -3,6 +3,12 @@
 
 include("conn/connLocalhost.php");
 
+
+
+
+
+
+
 //Obteniendo propiedades
 $queryGetPropiedad = "SELECT id, colonia, numero, habitaciones, capacidad, baño, tipo, imagenes, descripcion, costo_dia, costo_semana, costo_mes FROM propiedad ORDER BY colonia DESC LIMIT 4";
 $resQueryGetPropiedad = mysqli_query($connLocalhost, $queryGetPropiedad) or trigger_error("There was an error getting the user data... please try again");
@@ -91,7 +97,7 @@ $BlogDetails = mysqli_fetch_assoc($resQueryGetBlog);
                 <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                     <div class="booking-form">
                         <h3>Haz tu reservacion</h3>
-                        <form action="#">
+                        <form action="propiedad.php" method="get">
                             <div class="check-date">
                                 <label for="date-in">Entrada:</label>
                                 <input type="text" class="date-input" id="date-in" >
@@ -104,24 +110,26 @@ $BlogDetails = mysqli_fetch_assoc($resQueryGetBlog);
                             </div>
                             <div class="select-option">
                                 <label for="guest">Tipo:</label>
-                                <select id="guest">
-                                    <option value="">Condominio</option>
-                                    <option value="">Casa</option>
-                                    <option value="">Departamento</option>
+                                <select name="tipo" id="guest">
+                                    <option value="1">Condominio</option>
+                                    <option value="2">Casa</option>
+                                    <option value="3">Departamento</option>
+                                    <option value="0">Todos</option>
+
 
                                 </select>
                             </div>
                             <div class="check-date">
                                 <label for="room">Precio:</label>
 
-                                <input type="text" placeholder="desde $500" />
+                                <input name="precioInicial" min="500" required type="number" placeholder="desde $500" />
 
                               <label for="room"></label>
 
-                                <input type="text" placeholder="hasta $1000" />
+                                <input name="precioFinal" min="501" required type="number" placeholder="hasta $1000" />
 
                             </div>
-                            <button type="submit">Ver disponibilidad</button>
+                            <button name="btnenviarP" type="submit">Ver disponibilidad</button>
                         </form>
                     </div>
                 </div>
@@ -237,7 +245,7 @@ $BlogDetails = mysqli_fetch_assoc($resQueryGetBlog);
                                         </tr>
                                     </tbody>
                                 </table>
-                                <a href="#" class="primary-btn">More Details</a>
+                                <a href="propiedadDetalle.php?id=<?php echo $PropiedadDetails['id'] ?>&btnDetalle=" class="primary-btn">Mas Detalles</a>
                             </div>
                         </div>
                     </div>
@@ -278,7 +286,7 @@ $BlogDetails = mysqli_fetch_assoc($resQueryGetBlog);
                 <div class="col-lg-4">
                     <div class="blog-item set-bg" data-setbg="<?php echo $BlogDetails['imagen']; ?>">
                         <div class="bi-text">
-                            <h4><a href="#"><?php echo $BlogDetails['titulo'];?></a></h4>
+                            <h4><a href="blog.php"><?php echo $BlogDetails['titulo'];?></a></h4>
                         </div>
                     </div>
                 </div>

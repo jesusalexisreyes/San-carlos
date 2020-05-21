@@ -60,7 +60,7 @@ $PerfilDetails = mysqli_fetch_assoc($resQueryGetPerfil);
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inmobilaria San carlos | Rentas</title>
+    <title>Inmobilaria San carlos | Tipos usuario</title>
 
 
     <!-- Css Styles -->
@@ -156,6 +156,10 @@ $PerfilDetails = mysqli_fetch_assoc($resQueryGetPerfil);
 
 
   <?php  include("includes/formatos/formatoRtipo.php"); ?>
+
+
+  <?php include("includes/footerAdmi.php"); ?>
+
 
 
 <script src="js/jquery-3.3.1.min.js"></script>

@@ -94,7 +94,7 @@ foreach ($_POST as $calzon => $caca) {
 
       // Redireccionamos al usuario si todo salio bien
       if($resQueryProUpdate) {
-        header("Location:  ../../control.propiedad.php??userUpdate=true");
+        header("Location:  ../../control.propiedad.php?userUpdate=true");
       }
     }
 
@@ -114,7 +114,7 @@ foreach ($_POST as $calzon => $caca) {
      <meta name="keywords" content="Sona, unica, creative, html">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <title>Inmobilaria San carlos | Rentas</title>
+     <title>Inmobilaria San carlos | Usuario</title>
 
      <!-- Google Font -->
      <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -150,7 +150,7 @@ foreach ($_POST as $calzon => $caca) {
                  <div class="row">
                      <div class="col-lg-12">
                          <div class="breadcrumb-text">
-                             <h2>Lista de propiedades</h2>
+                             <h2>Usuarios</h2>
 
 
                              </div>

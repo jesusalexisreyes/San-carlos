@@ -11,11 +11,11 @@ include("conn/connLocalhost.php");
      } else {
          $pageno = 1;
      }
-     $no_of_records_per_page = 6;
+     $no_of_records_per_page = 3;
      $offset = ($pageno-1) * $no_of_records_per_page;
 
 
-     $total_pages_sql = "SELECT COUNT(*) FROM propiedad";
+     $total_pages_sql = "SELECT COUNT(*) FROM blog";
      $result = mysqli_query($connLocalhost,$total_pages_sql);
      $total_rows = mysqli_fetch_array($result)[0];
      $total_pages = ceil($total_rows / $no_of_records_per_page);
@@ -25,40 +25,18 @@ include("conn/connLocalhost.php");
 
 
 
-if(isset($_GET['btnenviarP']) ) {
 
-
-
-$inicial =$_GET['precioInicial'];
-$final=$_GET['precioFinal'];
-$tipo='';
-if($_GET['tipo']!=0){
-  $tipo="AND tipo =".$_GET['tipo'];
-}
   //Obteniendo propiedades
-  $queryGetPropiedadAll = "SELECT id, colonia, numero, habitaciones, capacidad, baño, tipo, imagenes, descripcion, costo_dia, costo_semana, costo_mes FROM propiedad WHERE costo_dia >=$inicial  AND costo_dia <=$final $tipo ORDER BY colonia DESC LIMIT $offset, $no_of_records_per_page";
-  $resQueryGetPropiedadAll = mysqli_query($connLocalhost, $queryGetPropiedadAll) or trigger_error("There was an error getting the user data... please try again");
 
-  $totalPropiedadAll = mysqli_num_rows($resQueryGetPropiedadAll);
+  $queryGetBlog = "SELECT id, titulo, descripcion, imagen FROM blog ORDER BY id DESC";
+  $resQueryGetBlog = mysqli_query($connLocalhost, $queryGetBlog) or trigger_error("There was an error getting the user data... please try again");
 
-  $PropiedadDetailsAll = mysqli_fetch_assoc($resQueryGetPropiedadAll);
+  $totalBlog = mysqli_num_rows($resQueryGetBlog);
 
-}
-
-if(!isset($_GET['btnenviarP'])  ) {
+  $blogDetails = mysqli_fetch_assoc($resQueryGetBlog);
 
 
 
-
-//Obteniendo propiedades
-$queryGetPropiedadAll = "SELECT id, colonia, numero, habitaciones, capacidad, baño, tipo, imagenes, descripcion, costo_dia, costo_semana, costo_mes FROM propiedad ORDER BY colonia DESC LIMIT $offset, $no_of_records_per_page";
-$resQueryGetPropiedadAll = mysqli_query($connLocalhost, $queryGetPropiedadAll) or trigger_error("There was an error getting the user data... please try again");
-
-$totalPropiedadAll = mysqli_num_rows($resQueryGetPropiedadAll);
-
-$PropiedadDetailsAll = mysqli_fetch_assoc($resQueryGetPropiedadAll);
-
-}
 
 //Obteniendo propiedades
 $queryGetPropiedad = "SELECT id, colonia, numero, habitaciones, capacidad, baño, tipo, imagenes, descripcion, costo_dia, costo_semana, costo_mes FROM propiedad ORDER BY colonia DESC LIMIT 4";
@@ -69,12 +47,7 @@ $totalPropiedad = mysqli_num_rows($resQueryGetPropiedad);
 $PropiedadDetails = mysqli_fetch_assoc($resQueryGetPropiedad);
 
 
-if (count($PropiedadDetailsAll) == 0 ) {
 
-
-  header("Location: propiedad.php?prop=true");
-
-}
 
 
 
@@ -136,7 +109,7 @@ if (count($PropiedadDetailsAll) == 0 ) {
         <div class="container">
                 <div class="col-lg-10">
                     <div class="hero-text">
-                      <h2 id="titulo" style="font-size: 59px; padding: 5px;">Listado de propiedades</h2>
+                      <h2 id="titulo" style="font-size: 59px; padding: 5px;">Nuestro Blog</h2>
                       <br>
                     </div>
                   </div>
@@ -151,75 +124,42 @@ if (count($PropiedadDetailsAll) == 0 ) {
     <!-- Hero Section End -->
 
     <!-- About Us Section Begin -->
-    <section class="aboutus-section spad">
-
-
+    <section class="aboutus-section ">
         <div class="container">
-          <?php if (isset($_GET['prop'])) {
-        echo "    <div class='alert alert-warning' role='alert'>
-    No existe propiedad con esos valores        </div>
-
-";
-          }?>
             <div class="row">
 
+                     <?php do { ?>
 
-              <?php
+                          <div class="container" style="padding: 10px;">
+                              <div class="row">
+                                  <div class="col-lg-6">
+                                      <div class="about-text">
+                                          <div class="section-title">
+                                              <h2><?php echo $blogDetails['titulo']  ?></h2>
+                                          </div>
+                                          <p class="s-para"><?php echo $blogDetails['descripcion'] ?></p>
 
-               do {
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                      <div class="about-pic">
+                                          <div class="row">
+                                                  <img src="<?php echo $blogDetails['imagen']  ?>" style="width: 600px; height: 468px; border-radius: 5px;" alt="">
 
-                                       $fullImg= $PropiedadDetailsAll['imagenes'];
-                                       $fullImgC= trim($fullImg, ',');
 
-                                        $lisImg = explode(",", $fullImgC);
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
 
-                  ?>
-                 <div class="col-lg-4 col-md-6">
-                     <div class="room-item">
-                         <form action="propiedadDetalle.php" method="get">
-                         <img style="width="200" height="300"" src="<?php echo $lisImg['0'];?>" alt="">
-                         <div class="ri-text">
-                             <h4><?php echo $PropiedadDetailsAll['colonia']." #".$PropiedadDetailsAll['numero']; ?></h4>
-                             <h3> <?php echo $PropiedadDetailsAll['costo_dia'] ?> <span>/Por noche</span></h3>
-                             <table>
-                                 <tbody>
-                                     <tr>
-                                         <td class="r-o">Habitaciones:</td>
-                                         <td><?php echo $PropiedadDetailsAll['habitaciones'] ?></td>
-                                     </tr>
-                                     <tr>
-                                         <td class="r-o">Capacidad:</td>
-                                         <td>Max: <?php echo $PropiedadDetailsAll['capacidad'] ?></td>
-                                     </tr>
-                                     <tr>
-                                         <td class="r-o">Baño:</td>
-                                         <td><?php echo $PropiedadDetailsAll['baño'] ?></td>
-                                     </tr>
-                                     <tr>
-                                         <td class="r-o">Tipo:</td>
-                                         <td><?php if($PropiedadDetailsAll['tipo']==1){
-                                          echo "condominio";}
-                                          if($PropiedadDetailsAll['tipo']==2){
-                                           echo "Casa";}
-                                           if($PropiedadDetailsAll['tipo']==3){
-                                            echo "Departamento";}
-                                           ?> </td>
-                                     </tr>
-                                 </tbody>
-                             </table>
-                             <input  type="hidden" name="id" value="<?php echo $PropiedadDetailsAll['id'] ?>">
-                                 <button class="alert alert-warning" name="btnDetalle" type="submit">Ver Detalles</button>                         </div>
-                               </form>
 
-                     </div>
-                 </div>
-
-              <?php  } while($PropiedadDetailsAll = mysqli_fetch_assoc($resQueryGetPropiedadAll));
-             ?>
+                      <?php } while($blogDetails = mysqli_fetch_assoc($resQueryGetBlog)); ?>
 
             </div>
         </div>
         <nav aria-label="Page navigation example">
+          <div class="col-lg-12" style="padding: 20px;">
 
             <ul class="pagination justify-content-center">
                 <li class="page-item"><a style="color:#dfa974;" class="page-link"href="?pageno=1">Primero</a></li>
@@ -231,6 +171,8 @@ if (count($PropiedadDetailsAll) == 0 ) {
                 </li>
                 <li class="page-item"><a style="color:#dfa974;" class="page-link" href="?pageno=<?php echo $total_pages; ?>">Ultimo</a></li>
             </ul>
+          </div>
+
           </nav>
 
     </section>
@@ -264,7 +206,7 @@ if (count($PropiedadDetailsAll) == 0 ) {
 
 
                   <?php
-                   do {   ?>
+                   do {  ?>
 
 
 
@@ -295,7 +237,7 @@ if (count($PropiedadDetailsAll) == 0 ) {
                                             <td> <?php echo $PropiedadDetails['baño'] ?></td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Capacidad:</td>
+                                            <td class="r-o">Bed:</td>
                                             <td> <?php echo $PropiedadDetails['capacidad'] ?></td>
                                         </tr>
                                         <tr>

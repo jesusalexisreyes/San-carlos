@@ -47,8 +47,7 @@
                                     <li><a href="./propiedad.php">Propiedades</a></li>
 
                                     <li><a href="./blog.php">Nuestro blog</a></li>
-                                          <li><a href="./nosotros.html">¿Quienes somos?</a></li>
-                                    <li><a href="./contact.php">Contacto</a></li>
+                                          <li><a href="./contact.html">¿Quienes somos?</a></li>
 
                                 </ul>
                             </nav>

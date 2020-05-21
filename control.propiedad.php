@@ -6,6 +6,25 @@
 include("conn/connLocalhost.php");
 include("includes/utils.php");
 
+
+
+
+if (isset($_GET['pageno'])) {
+    $pageno = $_GET['pageno'];
+} else {
+    $pageno = 1;
+}
+$no_of_records_per_page = 5;
+$offset = ($pageno-1) * $no_of_records_per_page;
+
+
+$total_pages_sql = "SELECT COUNT(*) FROM propiedad";
+$result = mysqli_query($connLocalhost,$total_pages_sql);
+$total_rows = mysqli_fetch_array($result)[0];
+$total_pages = ceil($total_rows / $no_of_records_per_page);
+
+
+
 if(!isset($_GET['userDelete'])) {
 $accionE=false;}
 if(isset($_POST['sent'])) {
@@ -76,8 +95,14 @@ if(!isset($error)) {
 
 }
 }
+$valor="";
+if (isset($_GET['btnbusqueda'])) {
+  $valor=$_GET['valorc'];
 
-$queryGetPropiedad = "SELECT id, colonia, numero, habitaciones, capacidad, baño, tipo, descripcion, costo_dia, costo_semana, costo_mes FROM propiedad ORDER BY colonia DESC";
+
+}
+
+$queryGetPropiedad = "SELECT id, colonia, numero, habitaciones, capacidad, baño, tipo, descripcion, costo_dia, costo_semana, costo_mes FROM propiedad WHERE colonia LIKE '%$valor%'  ORDER BY colonia LIMIT $offset, $no_of_records_per_page ";
 $resQueryGetPropiedad = mysqli_query($connLocalhost, $queryGetPropiedad) or trigger_error("There was an error getting the user data... please try again");
 
 $totalPropiedad = mysqli_num_rows($resQueryGetPropiedad);
@@ -100,7 +125,7 @@ $PropiedadDetails = mysqli_fetch_assoc($resQueryGetPropiedad);
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inmobilaria San carlos | Rentas</title>
+    <title>Inmobilaria San carlos | Propiedades</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -175,7 +200,19 @@ $PropiedadDetails = mysqli_fetch_assoc($resQueryGetPropiedad);
           </div>
           <?php }    } ?>
 
-  <button button type="submit" id="submit"data-toggle="modal" data-target="#formatoRpropiedades" >REGISTRAR</button>
+  <button button class="alert alert-warning" type="submit" id="submit"data-toggle="modal" data-target="#formatoRpropiedades" >REGISTRAR</button>
+
+
+<form class="form-inline" action="control.propiedad.php" method="get">
+  <div class="form-group mb-2">
+
+  <input class="form-control" required type="text" name="valorc" value=""  >
+  <input class="form-control"  type="submit" name="btnbusqueda" value="Buscar por colonia">
+  </div>
+
+</form>
+
+
 
 <div class="table-striped table-responsive table-sm ">
 
@@ -244,6 +281,23 @@ $PropiedadDetails = mysqli_fetch_assoc($resQueryGetPropiedad);
 
 
 </div>
+<nav style="padding: 20px;" aria-label="Page navigation example">
+
+    <ul class="pagination justify-content-center">
+        <li class="page-item"><a style="color:#dfa974;" class="page-link"href="?pageno=1">Primero</a></li>
+        <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?> page-item">
+            <a style="color:#dfa974;" class="page-link" href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Anterior</a>
+        </li class="page-item">
+        <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?> page-item">
+            <a style="color:#dfa974;" class="page-link"  href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Siguiente</a>
+        </li>
+        <li class="page-item"><a style="color:#dfa974;" class="page-link" href="?pageno=<?php echo $total_pages; ?>">Ultimo</a></li>
+    </ul>
+  </nav>
+
+
+  <?php include("includes/footerAdmi.php"); ?>
+
 
 
     <?php include("includes/formatos/formatoRpropiedad.php"); ?>

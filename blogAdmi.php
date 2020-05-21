@@ -41,7 +41,7 @@ if(!isset($error)) {
 
 //Empezamos a procesar la informacionde la base de datos de el blog
 
-$queryGetBlog = "SELECT titulo, descripcion, imagen FROM blog";
+$queryGetBlog = "SELECT id, titulo, descripcion, imagen FROM blog ORDER BY id DESC";
 $resQueryGetBlog = mysqli_query($connLocalhost, $queryGetBlog) or trigger_error("There was an error getting the user data... please try again");
 
 $totalBlog = mysqli_num_rows($resQueryGetBlog);
@@ -61,7 +61,7 @@ $blogDetails = mysqli_fetch_assoc($resQueryGetBlog);
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sona | Template</title>
+    <title>Inmobiliaria San Carlos | Blog</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -120,6 +120,18 @@ $blogDetails = mysqli_fetch_assoc($resQueryGetBlog);
 <?php include("includes/headerAdmi.php"); ?>
     <!-- Contact Section Begin -->
     <section class="contact-section spad">
+      <?php if(isset($_GET['blogUpdate']) ) {
+        if ($_GET['blogUpdate']==true) {
+          // code...
+
+
+       ?>
+       <div class="alert alert-success alert-dismissible fade show">
+          <strong>Accion exitosa!</strong> Se ha Editado una propiedad exitosamente.
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+      <?php }    } ?>
+
         <div class="container">
             <div class="row">
 
@@ -143,6 +155,9 @@ $blogDetails = mysqli_fetch_assoc($resQueryGetBlog);
 
 
   </div><!-- end row -->
+
+
+
 
     </section>
     <!-- Contact Section End -->
@@ -172,6 +187,22 @@ $blogDetails = mysqli_fetch_assoc($resQueryGetBlog);
                             <div class="row">
                                     <img src="<?php echo $blogDetails['imagen']  ?>" style="width: 600px; height: 468px; border-radius: 5px;" alt="">
 
+                                    <form style="padding: 10px;" method="GET" action="includes/formatos/formatoEliminarB.php" enctype="multipart/form-data" >
+                                      <input type="hidden" name="idb" value="<?php echo $blogDetails['id'] ?>" />
+
+
+                                      <input type="submit" class="btn btn-danger" name="btneliminar" value="Eliminar" />
+
+
+                                      </form>
+                                      <form style="padding: 10px;"  method="GET" action="includes/formatos/formatoEditarB.php" enctype="multipart/form-data" >
+                                        <input type="hidden" name="idb" value="<?php echo $blogDetails['id'] ?>" />
+
+
+                                        <input type ="hidden" name="tabla"  value=" <?php echo 'blog' ?>"/>
+                                        <input type="submit"  class="btn btn-warning" name="btneditarB" value="Editar" />
+
+                                        </form>
                             </div>
                         </div>
                     </div>
@@ -185,81 +216,12 @@ $blogDetails = mysqli_fetch_assoc($resQueryGetBlog);
 
 
     <!-- Footer Section Begin -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="footer-text">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="ft-about">
-                            <div class="logo">
-                                <a href="#">
-                                    <img src="img/footer-logo.png" alt="">
-                                </a>
-                            </div>
-                            <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
-                            <div class="fa-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-tripadvisor"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 offset-lg-1">
-                        <div class="ft-contact">
-                            <h6>Contact Us</h6>
-                            <ul>
-                                <li>(12) 345 67890</li>
-                                <li>info.colorlib@gmail.com</li>
-                                <li>856 Cordia Extension Apt. 356, Lake, United State</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 offset-lg-1">
-                        <div class="ft-newslatter">
-                            <h6>New latest</h6>
-                            <p>Get the latest updates and offers.</p>
-                            <form action="#" class="fn-form">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-
-        <div class="copyright-option">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Environmental Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <?php include("includes/footerAdmi.php"); ?>
 
 
 
 
-
-
-
-
-
-    </footer>
     <!-- Footer Section End -->
 
     <!-- Search model Begin -->

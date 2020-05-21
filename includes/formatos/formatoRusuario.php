@@ -63,6 +63,11 @@ echo "  </div>";}
 
           <input type="password"  name="contraseña" placeholder="Ingresa tu contraseña" required/>
           <br>
+          <label for="room">Repetir contraseña:</label>
+
+
+          <input type="password"  name="contraseña2" placeholder="Ingresa tu contraseña de nuevo" required/>
+          <br>
           <label for="room">Telefono:</label>
           <input type="number"  name="telefono" placeholder="Ingresa tu telefono" required/>
           <label>Tipo de usuario</label> <br>
