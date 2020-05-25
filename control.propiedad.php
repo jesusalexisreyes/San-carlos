@@ -6,7 +6,14 @@
 include("conn/connLocalhost.php");
 include("includes/utils.php");
 
+if (!isset($_SESSION)) {
+    session_start();
+    //session_destroy();
 
+
+
+  if(!isset($_SESSION['usuarioId'])) header('Location: entrar.php?authError=true');
+}
 
 
 if (isset($_GET['pageno'])) {
@@ -142,6 +149,8 @@ $PropiedadDetails = mysqli_fetch_assoc($resQueryGetPropiedad);
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="shortcut icon" href="favicon.ico" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 

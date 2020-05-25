@@ -55,6 +55,8 @@ $BlogDetails = mysqli_fetch_assoc($resQueryGetBlog);
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="shortcut icon" href="favicon.ico" />
+
 </head>
 
 <body>
@@ -79,7 +81,7 @@ $BlogDetails = mysqli_fetch_assoc($resQueryGetBlog);
             <div class="row">
                 <div class="col-lg-6">
                     <div class="hero-text">
-                      <h2 id="titulo" style="font-size: 59px; padding: 5px;">Inmobiliaria san carlos</h2>
+                      <h2 id="titulo" style="font-size: 59px; padding: 5px;">Inmobiliaria San Carlos</h2>
                       <br>
                       <div class="contenedor">
 <ul>

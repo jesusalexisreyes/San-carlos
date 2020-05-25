@@ -4,6 +4,17 @@
 <?php
 include("conn/connLocalhost.php");
 include("includes/utils.php");
+
+if (!isset($_SESSION)) {
+    session_start();
+    //session_destroy();
+
+
+
+  if(!isset($_SESSION['usuarioId'])) header('Location: entrar.php?authError=true');
+}
+
+
 if(isset($_POST['sent'])) {
 
   // Validacion de cajas vacias

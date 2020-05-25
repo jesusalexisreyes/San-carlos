@@ -4,6 +4,16 @@
 error_reporting(E_ALL ^ E_NOTICE);
 include("conn/connLocalhost.php");
 include("includes/utils.php");
+if (!isset($_SESSION)) {
+    session_start();
+    //session_destroy();
+
+
+
+  if(!isset($_SESSION['usuarioId'])) header('Location: entrar.php?authError=true');
+}
+
+
 if(isset($_POST['sent'])) {
 
 
@@ -74,6 +84,7 @@ $PerfilDetails = mysqli_fetch_assoc($resQueryGetPerfil);
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="shortcut icon" href="favicon.ico" />
 
   </head>
   <body>

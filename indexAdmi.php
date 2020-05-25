@@ -1,3 +1,16 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+    //session_destroy();
+
+
+
+  if(!isset($_SESSION['usuarioId'])) header('Location: entrar.php?authError=true');
+}
+ ?>
+
+
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -24,6 +37,8 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="shortcut icon" href="favicon.ico" />
+
 </head>
 
 <body  >
