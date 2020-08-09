@@ -137,7 +137,7 @@ if ($_SESSION['UsuarioTCrear']=true) {
                     <div class="row">
                         <div class="col-lg-2">
                             <div class="logo">
-                                <a href="entrar.php">
+                                <a href="index.php">
                                 <img src="img/logo.png" alt="">
                                 </a>
                             </div>
@@ -187,9 +187,18 @@ if ($_SESSION['UsuarioTCrear']=true) {
                   <label for="date-out">Contraseña:</label>
                   <input type="password" name="contraseña">
               </div>
+              <div class="alert alert-warning" role="alert">
 
+              <span style="    font-size: 10px;
+    color: #dfa974;
+    font-weight: 700;
+    letter-spacing: 2px;">Puedes acceder a la vista principal con:<br/>
+              correo: visitante@gmail.com <br/>
+            contraseña: visitante  </span>
+</div>
 
-        <input type="submit" value="Iniciar sesion" name ="sent" class="btn btn-default btn-block" />          </form>
+        <input type="submit" value="Iniciar sesion" style="    border-left: groove;
+    border-right: groove;" name ="sent" class="btn btn-default btn-block" />          </form>
       </div>
   </div>
     </section>

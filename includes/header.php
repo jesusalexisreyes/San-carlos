@@ -48,6 +48,7 @@
 
                                     <li><a href="./blog.php">Nuestro blog</a></li>
                                           <li><a href="./contact.html">¿Quienes somos?</a></li>
+                                          <a class="btn btn btn-dark" href="entrar.php">Iniciar sesion</a>
 
                                 </ul>
                             </nav>
