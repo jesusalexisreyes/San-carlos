@@ -482,7 +482,7 @@ $i++;
     <!-- Js Plugins -->
 
 
-      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-_zF4mtTkrsoTOFUR9zfRJpPlVXPUoE0&callback=setMapa" type="text/javascript"></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-_zF4mtTkrsoTOFUR9zfRJpPlVXPUoE0&callback=q1" type="text/javascript"></script>
 
 
 

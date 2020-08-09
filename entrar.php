@@ -57,18 +57,18 @@ if(isset($_POST['sent'])) {
       $_SESSION['UsuarioTelefono'] = $userData['telefono'];
 
 
-      $valor = $UsuarioDetails['usuarioId'];
+      $valor = $userData['perfil_usuario'];
       $queryGeTipotUsuario = "SELECT id, nombre, crear, editar, eliminar FROM perfil_usuario WHERE id=$valor";
       $resQueryGetTipoUsuario = mysqli_query($connLocalhost, $queryGeTipotUsuario) or trigger_error("There was an error getting the user data... please try again");
       if(mysqli_num_rows($resQueryGetTipoUsuario))
         // Hacemos un fetch del resultset
-        $userData = mysqli_fetch_assoc($resQueryGetTipoUsuario);
+        $perfilData = mysqli_fetch_assoc($resQueryGetTipoUsuario);
 
-        $_SESSION['perfilId'] = $userData['id'];
-            $_SESSION['perfilnombre'] = $userData['nombre'];
-        $_SESSION['perfilcrear'] = $userData['crear'];
-          $_SESSION['perfileditar'] = $userData['editar'];
-        $_SESSION['perfileliminar'] = $userData['eliminar'];
+        $_SESSION['perfilId'] = $perfilData['id'];
+        $_SESSION['perfilnombre'] = $perfilData['nombre'];
+        $_SESSION['perfilcrear'] = $perfilData['crear'];
+        $_SESSION['perfileditar'] = $perfilData['editar'];
+        $_SESSION['perfileliminar'] = $perfilData['eliminar'];
 
 
 

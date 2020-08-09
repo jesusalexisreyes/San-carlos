@@ -6,7 +6,12 @@ if (!isset($_SESSION)) {
 
 
   if(!isset($_SESSION['usuarioId'])) header('Location: entrar.php?authError=true');
+
+
 }
+
+include("includes/utils.php");
+
  ?>
 
 
@@ -65,7 +70,10 @@ if (!isset($_SESSION)) {
     <section class="aboutus-section spad" style="background-image: url(img/vistas/fondo.Admi.jpg);   background-repeat: no-repeat;
   background-attachment: scroll ;
   background-size: 100% 100%;" >
+
         <div class="container"  >
+          <?php   if(isset($_GET['verificacion'])) printMsg("Nota: No tienes las credenciales para acceder.", "exito");
+ ?>
             <div class="row">
                     <div class="about-text">
                         <div class="section-title">

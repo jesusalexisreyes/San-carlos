@@ -13,6 +13,9 @@ if (!isset($_SESSION)) {
 
 
   if(!isset($_SESSION['usuarioId'])) header('Location: entrar.php?authError=true');
+  if($_SESSION['perfilcrear']==true) header('Location: indexAdmi.php?verificacion=true');
+  if($_SESSION['perfileditar']==true) header('Location: indexAdmi.php?verificacion=true');
+  if($_SESSION['perfileliminar']==true) header('Location: indexAdmi.php?verificacion=true');
 }
 
 

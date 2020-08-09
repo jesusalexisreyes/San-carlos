@@ -11,6 +11,10 @@ if (!isset($_SESSION)) {
 
 
   if(!isset($_SESSION['usuarioId'])) header('Location: entrar.php?authError=true');
+  if($_SESSION['perfilcrear']==true) header('Location: indexAdmi.php?verificacion=true');
+  if($_SESSION['perfileditar']==true) header('Location: indexAdmi.php?verificacion=true');
+  if($_SESSION['perfileliminar']==true) header('Location: indexAdmi.php?verificacion=true');
+
 }
 
 
@@ -179,7 +183,7 @@ error_reporting(E_ALL);
                    </div>
                    <?php }    } ?>
 
-    <button button type="submit" data-toggle="modal" data-target="#registroUsuario" >Registrar tipo</button>
+    <button button type="submit" data-toggle="modal" data-target="#registroUsuario" >Registrar usuario</button>
     <?php  include("includes/formatos/formatoRusuario.php"); ?>
   </div>
 </div>
