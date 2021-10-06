@@ -10,11 +10,11 @@ if(!isset($_SESSION)) {
  if($_SESSION !=null) {
 
 
-   if ($_SESSION['UsuarioTCrear']==true) {
+   if ($_SESSION['UsuarioTCrear']=true) {
      header("Location: indexAdmi.php?login=true");
-   }if ($_SESSION['UsuarioTEditar']==true) {
+   }if ($_SESSION['UsuarioTEditar']=true) {
      header("Location: indexAdmi.php?login=true");
-   }if ($_SESSION['UsuarioTEliminar']==true) {
+   }if ($_SESSION['UsuarioTEliminar']=true) {
      header("Location: indexAdmi.php?login=true");
 }
 
@@ -72,11 +72,11 @@ if(isset($_POST['sent'])) {
 
 
 
-if ($_SESSION['UsuarioTCrear']=true) {
+if ($_SESSION['UsuarioTCrear']==true) {
   header("Location: indexAdmi.php?login=true");
-}if ($_SESSION['UsuarioTEditar']=true) {
+}if ($_SESSION['UsuarioTEditar']==true) {
   header("Location: indexAdmi.php?login=true");
-}if ($_SESSION['UsuarioTEliminar']=true) {
+}if ($_SESSION['UsuarioTEliminar']==true) {
   header("Location: indexAdmi.php?login=true");
 }
 

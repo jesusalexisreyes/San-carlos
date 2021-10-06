@@ -87,7 +87,7 @@
                     </div>
                 </div>
 
-            <div  class="col-lg-8" ><iframe style=" width: 700px; height: 400px;"" src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=en&amp;q=Bulevar%20Gabriel%20Estrada%2C%20Ranchito%20Campestre%2C%20El%20Caballito%2C%20Son.+(Inmobiliaria%20San%20Carlos)&amp;ie=UTF8&amp;t=&amp;z=20&amp;iwloc=A&amp;output=embed"
+            <div  class="col-lg-8" ><iframe style=" width: 700px; height: 400px;" src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=en&amp;q=Bulevar%20Gabriel%20Estrada%2C%20Ranchito%20Campestre%2C%20El%20Caballito%2C%20Son.+(Inmobiliaria%20San%20Carlos)&amp;ie=UTF8&amp;t=&amp;z=20&amp;iwloc=A&amp;output=embed"
             frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/draw-radius-circle-map/">Radius map tool</a></iframe></div><br />
             </div>
             </div>

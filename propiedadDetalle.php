@@ -310,7 +310,7 @@ $i++;
                       //position pondremos las mismas coordenas que obtuvimos en la geolocalización
                       marker = new google.maps.Marker({
                         map: map,
-                        draggable: true,
+                        draggable: false,
                         animation: google.maps.Animation.DROP,
                         position: new google.maps.LatLng(coords.lat,coords.lng),
 
@@ -482,7 +482,7 @@ $i++;
     <!-- Js Plugins -->
 
 
-      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-_zF4mtTkrsoTOFUR9zfRJpPlVXPUoE0&callback=q1" type="text/javascript"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-_zF4mtTkrsoTOFUR9zfRJpPlVXPUoE0&callback=setMapa" type="text/javascript"></script>
 
 
 
